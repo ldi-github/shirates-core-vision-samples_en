@@ -1,23 +1,38 @@
 {
-  "[設定]": {
-    "packageOrBundleId": "com.android.settings"
+  "[Settings]": {
+    "packageOrBundleId": "com.android.settings",
+    "appIconName": "Settings"
   },
-  "[電卓]": {
-    "packageOrBundleId": "com.google.android.calculator"
+  "[Calendar]": {
+    "packageOrBundleId": "com.google.android.calendar",
+    "appIconName": "Calendar"
+  },
+  "[Calculator]": {
+    "packageOrBundleId": "com.google.android.calculator",
+    "appIconName": "Calculator"
   },
   "[Chrome]": {
-    "packageOrBundleId": "com.android.chrome"
+    "packageOrBundleId": "com.android.chrome",
+    "appIconName": "Chrome"
   },
-  "[マップ]": {
-    "packageOrBundleId": "com.google.android.apps.maps"
+  "[Maps]": {
+    "packageOrBundleId": "com.google.android.apps.maps",
+    "appIconName": "Maps"
   },
-  "[Play ストア]": {
-    "packageOrBundleId": "com.android.vending"
+  "[Play Store]": {
+    "packageOrBundleId": "com.android.vending",
+    "appIconName": "Play Store"
   },
-  "[時計]": {
-    "packageOrBundleId": "com.google.android.deskclock"
+  "[Clock]": {
+    "packageOrBundleId": "com.google.android.deskclock",
+    "appIconName": "Clock"
   },
-  "[アプリ1]": {
-    "packageOrBundleId": "com.example.app1"
+  "[Downloads]": {
+    "packageOrBundleId": "com.google.android.documentsui",
+    "appIconName": "Downloads"
+  },
+  "[App1]": {
+    "packageOrBundleId": "com.example.app1",
+    "appIconName": "App1"
   }
 }

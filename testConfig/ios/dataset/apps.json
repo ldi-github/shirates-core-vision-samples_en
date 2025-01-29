@@ -1,23 +1,23 @@
 {
-  "[設定]": {
+  "[Settings]": {
     "packageOrBundleId": "com.apple.Preferences"
   },
   "[Safari]": {
     "packageOrBundleId": "com.apple.mobilesafari"
   },
-  "[マップ]": {
+  "[Maps]": {
     "packageOrBundleId": "com.apple.Maps"
   },
-  "[リマインダー]": {
+  "[Reminders]": {
     "packageOrBundleId": "com.apple.reminders"
   },
-  "[フリーボード]": {
+  "[Freeform]": {
     "packageOrBundleId": "com.apple.freeform"
   },
   "[News]": {
     "packageOrBundleId": "com.apple.news"
   },
-  "[アプリ1]": {
+  "[App1]": {
     "packageOrBundleId": "com.example.app1"
   }
 }
