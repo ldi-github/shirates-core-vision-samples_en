@@ -2,12 +2,10 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class ExistDontExist1 : UITest() {
+class ExistDontExist1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -77,7 +75,7 @@ class ExistDontExist1 : UITest() {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
-                        .flickBottomToTop()
+                        .flickAndGoDown()
                 }.expectation {
                     it.existWithScrollUp("Network & internet")
                 }
@@ -93,7 +91,7 @@ class ExistDontExist1 : UITest() {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
-                        .flickBottomToTop()
+                        .flickAndGoDown()
                 }.expectation {
                     it.existWithScrollUp("Network business")
                 }
@@ -103,48 +101,6 @@ class ExistDontExist1 : UITest() {
 
     @Test
     @Order(70)
-    fun existInScanResult_OK() {
-
-        scenario {
-            case(1) {
-                condition {
-                    it.macro("[Android Settings Top Screen]")
-                }.action {
-                    describe("Scans elements with scrolling down.")
-                        .scanElements()
-                }.expectation {
-                    describe("Asserts that expected elements exist in scan results.")
-                        .existInScanResults("Network & internet")
-                        .existInScanResults("Storage")
-                        .existInScanResults("System")
-                }
-            }
-        }
-    }
-
-    @Test
-    @Order(80)
-    fun existInScanResult_NG() {
-
-        scenario {
-            case(1) {
-                condition {
-                    it.macro("[Android Settings Top Screen]")
-                }.condition {
-                    describe("Scans elements with scrolling down.")
-                        .scanElements()
-                }.expectation {
-                    it.existInScanResults("Network & internet")
-                        .existInScanResults("Storage")
-                        .existInScanResults("System")
-                        .existInScanResults("Network business")
-                }
-            }
-        }
-    }
-
-    @Test
-    @Order(90)
     fun dontExist_OK() {
 
         scenario {
@@ -159,7 +115,7 @@ class ExistDontExist1 : UITest() {
     }
 
     @Test
-    @Order(100)
+    @Order(80)
     fun dontExist_NG() {
 
         scenario {
@@ -174,15 +130,52 @@ class ExistDontExist1 : UITest() {
     }
 
     @Test
-    @Order(110)
-    fun dontExistWithScrollDown_OK() {
+    @Order(90)
+    fun withScrollDown_dontExist_OK() {
 
         scenario {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
-                    it.dontExistWithScrollDown("Network business")
+                    withScrollDown {
+                        it.dontExist("Network business")
+                    }
+                }
+            }
+        }
+    }
+
+    @Test
+    @Order(100)
+    fun withScrollDown_dontExist_NG() {
+
+        scenario {
+            case(1) {
+                condition {
+                    it.macro("[Android Settings Top Screen]")
+                }.expectation {
+                    withScrollDown {
+                        it.dontExist("System")
+                    }
+                }
+            }
+        }
+    }
+
+    @Test
+    @Order(110)
+    fun dontExistWithScrollUp_OK() {
+
+        scenario {
+            case(1) {
+                condition {
+                    it.macro("[Android Settings Top Screen]")
+                        .flickAndGoDown()
+                }.expectation {
+                    withScrollUp {
+                        it.dontExist("Network business")
+                    }
                 }
             }
         }
@@ -190,14 +183,17 @@ class ExistDontExist1 : UITest() {
 
     @Test
     @Order(120)
-    fun dontExistWithScrollDown_NG() {
+    fun dontExistWithScrollUp_NG() {
 
         scenario {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
+                        .flickAndGoDown()
                 }.expectation {
-                    it.dontExistWithScrollDown("System")
+                    withScrollUp {
+                        it.dontExist("System")
+                    }
                 }
             }
         }
@@ -205,16 +201,17 @@ class ExistDontExist1 : UITest() {
 
     @Test
     @Order(130)
-    fun dontExistWithScrollUp_OK() {
+    fun withScrollDown_existWithoutScroll_NG() {
 
         scenario {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
-                }.condition {
-                    it.flickBottomToTop()
                 }.expectation {
-                    it.dontExistWithScrollUp("Network business")
+                    withScrollDown {
+                        it.existWithoutScroll("Network & internet")    // OK
+                        it.existWithoutScroll("System")    // NG
+                    }
                 }
             }
         }
@@ -222,55 +219,18 @@ class ExistDontExist1 : UITest() {
 
     @Test
     @Order(140)
-    fun dontExistWithScrollUp_NG() {
+    fun withScrollUp_dontExistWithoutScroll_NG() {
 
         scenario {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
-                }.condition {
-                    it.flickBottomToTop()
+                        .flickAndGoDown()
                 }.expectation {
-                    it.dontExistWithScrollUp("System")
-                }
-            }
-        }
-    }
-
-    @Test
-    @Order(150)
-    fun dontExistInScanResults_OK() {
-
-        scenario {
-            case(1) {
-                condition {
-                    it.macro("[Android Settings Top Screen]")
-                }.condition {
-                    it.scanElements()
-                }.expectation {
-                    it.dontExistInScanResults("Switch")
-                        .dontExistInScanResults("PS5")
-                        .dontExistInScanResults("XBOX")
-                }
-            }
-        }
-    }
-
-    @Test
-    @Order(160)
-    fun dontExistInScanResults_NG() {
-
-        scenario {
-            case(1) {
-                condition {
-                    it.macro("[Android Settings Top Screen]")
-                }.condition {
-                    it.scanElements()
-                }.expectation {
-                    it.dontExistInScanResults("Switch")
-                        .dontExistInScanResults("PS5")
-                        .dontExistInScanResults("XBOX")
-                        .dontExistInScanResults("Network & internet")
+                    withScrollUp {
+                        it.dontExistWithoutScroll("Display")    // OK
+                        it.dontExistWithoutScroll("System")    // NG
+                    }
                 }
             }
         }

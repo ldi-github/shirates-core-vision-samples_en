@@ -2,13 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
 import shirates.core.driver.viewBounds
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class Swipe1 : UITest() {
+class Swipe1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -19,8 +17,8 @@ class Swipe1 : UITest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.select("[Battery]")
-                        .swipeTo("[Network & internet]")
+                    it.detect("Battery")
+                        .swipeTo("Network & internet")
                 }.expectation {
                 }
             }
@@ -28,8 +26,8 @@ class Swipe1 : UITest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.select("[Battery]")
-                        .swipeToAdjust("[Network & internet]")
+                    it.detect("Battery")
+                        .swipeToAdjust("Network & internet")
                 }.expectation {
                 }
             }
@@ -44,27 +42,27 @@ class Swipe1 : UITest() {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
-                        .exist("[Notifications]")
-                        .exist("[Battery]")
+                        .exist("Notifications")
+                        .exist("Battery")
                 }.action {
-                    it.select("[Battery]")
+                    it.detect("Battery")
                         .swipeToCenterOfScreen()
-                        .swipeToTopOfScreen(durationSeconds = 10.0)
+                        .swipeToTopOfScreen(durationSeconds = 5.0)
                 }.expectation {
-                    it.dontExist("[Notifications]")
-                        .exist("[Storage]")
+                    it.dontExist("Notifications")
+                        .exist("Storage")
                 }
             }
             case(2) {
                 condition {
-                    it.exist("[Security & privacy]")
-                        .exist("[Location]")
+                    it.exist("Security & privacy")
+                        .exist("Location")
                 }.action {
-                    it.select("[Security & privacy]")
-                        .swipeToBottomOfScreen(durationSeconds = 10.0)
+                    it.detect("Security & privacy")
+                        .swipeToBottomOfScreen(durationSeconds = 5.0)
                 }.expectation {
-                    it.exist("[Security & privacy]")
-                        .dontExist("[Location]")
+                    it.exist("Security & privacy")
+                        .dontExist("Location")
                 }
             }
         }
@@ -249,8 +247,8 @@ class Swipe1 : UITest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.selectWithScrollDown("[Battery]")
-                        .swipeVerticalTo(300)
+                    it.detectWithScrollDown("Battery")
+                        .swipeVerticalTo(500)
                 }.expectation {
                 }
             }
@@ -273,17 +271,19 @@ class Swipe1 : UITest() {
                 condition {
                     it.pressHome()
                         .pressHome()
-                        .screenIs("[Pixel Home Screen]")
+                        .screenIs("[Android Home Screen]")
                 }.action {
-                    it.select("Chrome")
+                    it.detect("Photos")
                         .swipeHorizontalTo(0)
                 }.expectation {
                 }
             }
 
             case(2) {
-                action {
-                    it.select("Messages")
+                condition {
+                    it.pressHome()
+                }.action {
+                    it.detect("Gmail")
                         .swipeHorizontalTo(viewBounds.right)
                 }.expectation {
                 }
@@ -301,9 +301,9 @@ class Swipe1 : UITest() {
                 condition {
                     it.pressHome()
                         .pressHome()
-                        .screenIs("[Pixel Home Screen]")
+                        .screenIs("[Android Home Screen]")
                 }.action {
-                    it.select("@Search")
+                    it.detect("Gmail")
                         .swipeToTop()
                 }.expectation {
                 }
@@ -311,7 +311,7 @@ class Swipe1 : UITest() {
 
             case(2) {
                 action {
-                    it.select("#input")
+                    it.detect("Clock")
                         .swipeToBottom()
                 }.expectation {
                 }
@@ -328,9 +328,9 @@ class Swipe1 : UITest() {
                 condition {
                     it.pressHome()
                         .pressHome()
-                        .screenIs("[Pixel Home Screen]")
+                        .screenIs("[Android Home Screen]")
                 }.action {
-                    it.select("@Search")
+                    it.detect("Gmail")
                         .flickToTop()
                 }.expectation {
                 }
@@ -338,7 +338,7 @@ class Swipe1 : UITest() {
 
             case(2) {
                 action {
-                    it.select("#input")
+                    it.detect("Clock")
                         .flickToBottom()
                 }.expectation {
                 }

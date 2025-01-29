@@ -2,16 +2,14 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
 import shirates.core.driver.branchextension.ifFalse
 import shirates.core.driver.branchextension.ifTrue
-import shirates.core.driver.commandextension.isScreen
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.screenIs
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.isScreen
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.screenIs
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class ScreenIsAndIsScreen1 : UITest() {
+class ScreenIsAndIsScreen1 : VisionTest() {
 
     @Test
     @Order(10)

@@ -1,13 +1,11 @@
 package tutorial.basic
 
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.appIs
-import shirates.core.driver.commandextension.launchApp
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.appIs
+import shirates.core.vision.driver.commandextension.launchApp
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class TapAppIcon1 : UITest() {
+class TapAppIcon1 : VisionTest() {
 
     @Test
     fun tapAppIcon() {
