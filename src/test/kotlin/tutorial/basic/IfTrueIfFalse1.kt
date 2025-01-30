@@ -2,17 +2,15 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.branchextension.ifTrue
-import shirates.core.driver.commandextension.caption
-import shirates.core.driver.commandextension.exist
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.tapWithScrollDown
 import shirates.core.driver.isEmulator
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.branchextension.ifTrue
+import shirates.core.vision.driver.commandextension.caption
+import shirates.core.vision.driver.commandextension.exist
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.tapWithScrollDown
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class IfTrueIfFalse1 : UITest() {
+class IfTrueIfFalse1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -36,11 +34,11 @@ class IfTrueIfFalse1 : UITest() {
                     isEmulator
                         .ifTrue {
                             it.caption("on emulator")
-                                .exist("@About emulated device")
+                                .exist("*About emulated device*")
                         }
                         .ifElse {
                             it.caption("on real device")
-                                .exist("@About phone")
+                                .exist("About phone")
                         }
                 }
             }
@@ -66,10 +64,10 @@ class IfTrueIfFalse1 : UITest() {
                 }.expectation {
                     isEmulator
                         .ifTrue("on emulator") {
-                            it.exist("@About emulated device")
+                            it.exist("*About emulated device*")
                         }
                         .ifElse("on real device") {
-                            it.exist("@About phone")
+                            it.exist("About phone")
                         }
                 }
             }

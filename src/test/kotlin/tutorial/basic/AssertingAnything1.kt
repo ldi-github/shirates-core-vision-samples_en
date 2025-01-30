@@ -2,16 +2,14 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.TestElementCache.rootElement
-import shirates.core.driver.commandextension.appIs
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.screenIs
-import shirates.core.driver.commandextension.verify
-import shirates.core.testcode.UITest
+import shirates.core.driver.packageName
+import shirates.core.vision.driver.commandextension.appIs
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.screenIs
+import shirates.core.vision.driver.commandextension.verify
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class AssertingAnything1 : UITest() {
+class AssertingAnything1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -23,7 +21,7 @@ class AssertingAnything1 : UITest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.verify("The packageName is \"com.android.settings\"") {
-                        if (rootElement.packageName == "com.android.settings") {
+                        if (packageName == "com.android.settings") {
                             OK()
                         } else {
                             NG()

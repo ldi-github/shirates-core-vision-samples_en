@@ -62,7 +62,7 @@ class FindImage1 : VisionTest() {
                 condition {
                     it.macro("[Files Top Screen]")
                 }.action {
-                    it.onLineOf("Images", verticalMargin = 40) {
+                    it.onLineOf("Images") {
                         v1 = findImageWithScrollRight("[This week Button]")
                     }
                 }.expectation {
@@ -71,7 +71,7 @@ class FindImage1 : VisionTest() {
             }
             case(2) {
                 action {
-                    v1.onLine(verticalMargin = 40) {
+                    v1.onLine {
                         v2 = findImageWithScrollLeft("[Audio Button]")
                     }
                 }.expectation {

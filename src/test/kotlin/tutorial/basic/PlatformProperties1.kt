@@ -2,7 +2,6 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
 import shirates.core.driver.TestMode.isAndroid
 import shirates.core.driver.TestMode.isiOS
 import shirates.core.driver.commandextension.thisIs
@@ -11,10 +10,9 @@ import shirates.core.driver.commandextension.thisIsTrue
 import shirates.core.driver.platformMajorVersion
 import shirates.core.driver.platformName
 import shirates.core.driver.platformVersion
-import shirates.core.testcode.UITest
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("unitTestData/testConfig/testrun/android_14/testrun.properties")
-class PlatformProperties1 : UITest() {
+class PlatformProperties1 : VisionTest() {
 
     @Test
     @Order(10)

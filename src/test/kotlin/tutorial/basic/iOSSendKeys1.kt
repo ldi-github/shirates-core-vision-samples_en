@@ -2,28 +2,35 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.testcode.ios
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/ios/iOSSettings/testrun.properties")
-class iOSSendKeys1 : UITest() {
+@ios
+class iOSSendKeys1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun sendKeys() {
+    fun sendKeys_clearInput() {
 
         scenario {
             case(1) {
                 condition {
                     it.pressHome()
                         .swipeCenterToBottom()
-                        .tap("[SpotlightSearchField]")
+                        .tap("Search")
                         .clearInput()
                 }.action {
                     it.sendKeys("safari")
                 }.expectation {
                     it.textIs("safari")
+                }
+            }
+            case(2) {
+                action {
+                    it.clearInput()
+                }.expectation {
+                    it.textIs("Search")
                 }
             }
         }

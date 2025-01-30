@@ -2,15 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.keyboardIsNotShown
-import shirates.core.driver.commandextension.keyboardIsShown
 import shirates.core.driver.commandextension.thisIsFalse
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class AndroidKeyboard1 : UITest() {
+class AndroidKeyboard1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -19,10 +15,10 @@ class AndroidKeyboard1 : UITest() {
         scenario {
             case(1) {
                 condition {
-                    it.macro("[Android Home Screen]")
+                    it.macro("[Android Settings Top Screen]")
                         .isKeyboardShown.thisIsFalse("Keyboard is not shown")
                 }.action {
-                    it.tap("@Search")
+                    it.tap("Search settings")
                 }.expectation {
                     it.keyboardIsShown()
                 }

@@ -9,7 +9,7 @@ class AssertingText1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun textAssertion_belowTextis_aboveTextIs() {
+    fun belowTextIs_aboveTextIs() {
 
         scenario {
             case(1) {
@@ -28,7 +28,7 @@ class AssertingText1 : VisionTest() {
 
     @Test
     @Order(20)
-    fun textAssertion_rightTextIs_leftTextIs() {
+    fun rightTextIs_leftTextIs() {
 
         scenario {
             case(1) {
@@ -46,8 +46,8 @@ class AssertingText1 : VisionTest() {
     }
 
     @Test
-    @Order(20)
-    fun textAssertion_NG() {
+    @Order(30)
+    fun textIs_NG() {
 
         scenario {
             case(1) {

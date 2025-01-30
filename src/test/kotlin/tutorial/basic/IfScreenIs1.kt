@@ -2,15 +2,13 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.branchextension.ifScreenIs
-import shirates.core.driver.branchextension.ifScreenIsNot
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.tap
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.ifScreenIs
+import shirates.core.vision.driver.commandextension.ifScreenIsNot
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.tap
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class IfScreenIs1 : UITest() {
+class IfScreenIs1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -30,7 +28,7 @@ class IfScreenIs1 : UITest() {
             }
             case(2) {
                 action {
-                    it.tap("[Network & internet]")
+                    it.tap("Network & internet")
                 }.expectation {
                     ifScreenIs("[Network & internet Screen]") {
                         OK("ifScreenIs called")
@@ -60,7 +58,7 @@ class IfScreenIs1 : UITest() {
             }
             case(2) {
                 action {
-                    it.tap("[Network & internet]")
+                    it.tap("Network & internet")
                 }.expectation {
                     ifScreenIsNot("[Network & internet Screen]") {
                         NG()

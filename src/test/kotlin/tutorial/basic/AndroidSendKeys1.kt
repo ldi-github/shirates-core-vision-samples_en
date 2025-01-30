@@ -2,16 +2,17 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.clearInput
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.sendKeys
+import shirates.core.vision.driver.commandextension.textIs
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class AndroidSendKeys1 : UITest() {
+class AndroidSendKeys1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun sendKeys() {
+    fun sendKeys_clearInput() {
 
         scenario {
             case(1) {
@@ -23,29 +24,14 @@ class AndroidSendKeys1 : UITest() {
                     it.textIs("clock")
                 }
             }
-        }
-    }
-
-    @Test
-    @Order(20)
-    fun clearInput() {
-
-        scenario {
-            case(1) {
-                condition {
-                    it.restartApp()
-                        .macro("[Android Settings Search Screen]")
-                        .select("[Search Box]")
-                        .textIs("Search settings")
-                        .sendKeys("clock")
-                        .textIs("clock")
-                }.action {
+            case(2) {
+                action {
                     it.clearInput()
                 }.expectation {
-                    it.select("[Search Box]")
-                        .textIs("Search settings")
+                    it.textIs("Search settings")
                 }
             }
         }
     }
+
 }

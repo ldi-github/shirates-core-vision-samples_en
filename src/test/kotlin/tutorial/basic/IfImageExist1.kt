@@ -1,16 +1,14 @@
 package tutorial.basic
 
+import ifImageExist
+import ifImageExistNot
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.branchextension.ifImageExist
-import shirates.core.driver.branchextension.ifImageExistNot
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.scrollToBottom
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.scrollToBottom
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class IfImageExist1 : UITest() {
+class IfImageExist1 : VisionTest() {
 
     @Test
     @Order(10)

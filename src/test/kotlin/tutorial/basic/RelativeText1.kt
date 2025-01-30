@@ -2,47 +2,45 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.testcode.ios
 import shirates.core.vision.driver.commandextension.*
 import shirates.core.vision.testcode.VisionTest
 
-@ios
-class iOSPressKey1 : VisionTest() {
+class RelativeText1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun pressBack() {
+    fun belowText_aboveText() {
 
         scenario {
             case(1) {
                 condition {
-                    it.appIs("[Settings]")
-                        .launchApp("Maps")
-                        .appIs("[Maps]")
+                    it.macro("[Network & internet Screen]")
                 }.action {
-                    it.pressBack()
+                    v1 = detect("Airplane mode")
                 }.expectation {
-                    it.appIs("[Settings]")
+                    v1.belowText().textIs("Hotspot & tethering")
+                    v1.aboveText().textIs("T-Mobile")
                 }
             }
         }
+
     }
 
     @Test
     @Order(20)
-    fun pressHome() {
+    fun rightText_leftText() {
 
         scenario {
             case(1) {
                 condition {
-                    it.macro("[iOS Settings Top Screen]")
+                    it.macro("[Files Top Screen]")
                 }.action {
-                    it.pressHome()
+                    v1 = detect("Audio")
                 }.expectation {
-                    it.screenIs("[iOS Home Screen]")
+                    v1.rightText().textIs("Videos")
+                    v1.leftText().textIs("Images")
                 }
             }
         }
     }
-
 }

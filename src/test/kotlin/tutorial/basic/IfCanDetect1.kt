@@ -1,16 +1,14 @@
 package tutorial.basic
 
+import ifCanDetect
+import ifCanDetectNot
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.branchextension.ifCanSelect
-import shirates.core.driver.branchextension.ifCanSelectNot
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.scrollToBottom
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.scrollToBottom
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class IfCanSelect1 : UITest() {
+class IfCanDetect1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -21,13 +19,13 @@ class IfCanSelect1 : UITest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
-                    ifCanSelect("[Network & internet]") {
+                    ifCanDetect("Network & internet") {
                         OK("ifCanSelect called")
                     }.ifElse {
                         NG()
                     }
 
-                    ifCanSelectNot("[System]") {
+                    ifCanDetectNot("System") {
                         OK("ifCanSelectNot called")
                     }.ifElse {
                         NG()
@@ -38,13 +36,13 @@ class IfCanSelect1 : UITest() {
                 action {
                     it.scrollToBottom()
                 }.expectation {
-                    ifCanSelect("[Network & internet]") {
+                    ifCanDetect("Network & internet") {
                         NG()
                     }.ifElse {
                         OK("ifElse called")
                     }
 
-                    ifCanSelectNot("[System]") {
+                    ifCanDetectNot("System") {
                         NG()
                     }.ifElse {
                         OK("ifElse called")

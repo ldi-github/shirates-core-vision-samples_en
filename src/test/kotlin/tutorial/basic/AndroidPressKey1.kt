@@ -2,12 +2,10 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class AndroidPressKey1 : UITest() {
+class AndroidPressKey1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -47,17 +45,21 @@ class AndroidPressKey1 : UITest() {
 
     @Test
     @Order(30)
-    fun pressSearch() {
+    fun pressTab() {
 
         scenario {
             case(1) {
                 condition {
-                    it.macro("[Android Settings Search Screen]")
-                        .sendKeys("clock")
+                    it.macro("[Files Top Screen]")
                 }.action {
-                    it.pressSearch()
-                }.expectation {
-                    it.exist("Open Clock app")
+                    it.pressTab()
+                        .pressTab()
+                        .pressTab()
+                        .pressTab()
+                        .pressTab()
+                        .pressTab()
+                        .pressTab()
+                        .pressTab()
                 }
             }
         }
