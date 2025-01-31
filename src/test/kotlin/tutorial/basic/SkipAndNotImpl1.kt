@@ -2,16 +2,13 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.output
-import shirates.core.driver.commandextension.tap
-import shirates.core.driver.commandextension.textIs
-import shirates.core.driver.commandextension.textIsNot
 import shirates.core.driver.platformMajorVersion
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.output
+import shirates.core.vision.driver.commandextension.tap
+import shirates.core.vision.driver.commandextension.textIs
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class SkipAndNotImpl1 : UITest() {
+class SkipAndNotImpl1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -98,7 +95,6 @@ class SkipAndNotImpl1 : UITest() {
                 }.expectation {
                     it.textIs("Settings")    // Not reached
                     NOTIMPL("To be implement.")     // Not reached
-                    it.textIsNot("Connected devices")   // Not reached
                 }
             }
         }

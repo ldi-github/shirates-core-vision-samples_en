@@ -2,13 +2,10 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.screenIs
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class WaitScreen1 : UITest() {
+class WaitScreen1 : VisionTest() {
 
     @Test
     @Order(10)

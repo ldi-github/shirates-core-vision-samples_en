@@ -2,19 +2,17 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.screenIs
-import shirates.core.driver.commandextension.tap
-import shirates.core.driver.commandextension.tempSelector
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.screenIs
+import shirates.core.vision.driver.commandextension.tap
+import shirates.core.vision.driver.tempSelector
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class TempSelector1 : UITest() {
+class TempSelector1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun tempSelector() {
+    fun tempSelector1() {
 
         tempSelector("[First Item]", "Network & internet")
 

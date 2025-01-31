@@ -2,13 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
 import shirates.core.logging.TestLog.info
 import shirates.core.logging.TestLog.warn
-import shirates.core.testcode.UITest
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class InfoAndWarn1 : UITest() {
+class InfoAndWarn1 : VisionTest() {
 
     @Test
     @Order(10)

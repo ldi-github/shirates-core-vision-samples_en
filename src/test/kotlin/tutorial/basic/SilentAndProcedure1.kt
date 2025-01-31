@@ -2,12 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.driver.commandextension.silent
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class SilentAndProcedure1 : UITest() {
+class SilentAndProcedure1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -18,10 +17,10 @@ class SilentAndProcedure1 : UITest() {
                 condition {
                     macro("[Android Settings Top Screen]")
                 }.action {
-                    describe("Tap [System]")
+                    describe("Tap <System>")
                     silent {
                         it.scrollToBottom()
-                            .tap("[System]")
+                            .tap("System")
                     }
                 }.expectation {
                     it.screenIs("[System Screen]")
@@ -39,9 +38,9 @@ class SilentAndProcedure1 : UITest() {
                 condition {
                     macro("[Android Settings Top Screen]")
                 }.action {
-                    procedure("Tap [System]") {
+                    procedure("Tap <System>") {
                         it.scrollToBottom()
-                            .tap("[System]")
+                            .tap("System")
                     }
                 }.expectation {
                     it.screenIs("[System Screen]")

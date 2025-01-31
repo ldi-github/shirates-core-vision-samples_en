@@ -2,13 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.driver.doUntilTrue
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.driver.doUntilTrue
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class DoUntilTrue1 : UITest() {
+class DoUntilTrue1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -23,7 +21,7 @@ class DoUntilTrue1 : UITest() {
                 }.action {
                     doUntilTrue {
                         it.swipeCenterToTop()
-                        it.canSelect("System")
+                        it.canDetect("System")
                     }
                     it.tap()
                 }.expectation {
@@ -51,7 +49,7 @@ class DoUntilTrue1 : UITest() {
                         }
                     ) {
                         it.swipeCenterToTop()
-                        it.canSelect("System")
+                        it.canDetect("System")
                     }
                     it.tap()
                 }.expectation {
@@ -74,13 +72,12 @@ class DoUntilTrue1 : UITest() {
                 }.action {
                     doUntilTrue(
                         maxLoopCount = 2,
-                        throwOnOverMaxLoopCount = false,
                         onMaxLoop = { c ->
                             SKIP_SCENARIO("MaxLoopCount. (maxLoopCount=${c.maxLoopCount})")
                         }
                     ) {
                         it.swipeCenterToTop()
-                        it.canSelect("System")
+                        it.canDetect("System")
                     }
                     it.tap()
                 }.expectation {
@@ -103,20 +100,7 @@ class DoUntilTrue1 : UITest() {
                             c.cancelRetry = c.count >= 3
                         },
                     ) {
-                        it.select("#no-exist", waitSeconds = 0.0)   // throws TestDriverException
-                        false
-                    }
-                }
-            }
-            case(2) {
-                expectation {
-                    doUntilTrue(
-                        onError = { c ->
-                            output("${c.error} (${c.count})")
-                            c.cancelRetry = true
-                        }
-                    ) {
-                        it.select("#no-exist", waitSeconds = 0.0)   // throws TestDriverException
+                        it.detect("no-exist", waitSeconds = 0.0)   // throws TestDriverException
                         false
                     }
                 }

@@ -2,13 +2,11 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.macro
-import shirates.core.driver.commandextension.manual
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.macro
+import shirates.core.vision.driver.commandextension.manual
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class Manual1 : UITest() {
+class Manual1 : VisionTest() {
 
     @Test
     @Order(10)

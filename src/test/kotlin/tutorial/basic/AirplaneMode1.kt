@@ -2,12 +2,10 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class AirplaneMode1 : UITest() {
+class AirplaneMode1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -15,20 +13,33 @@ class AirplaneMode1 : UITest() {
 
         scenario {
             case(1) {
-                action {
-                    it.macro("[Airplane mode On]")
-                        .flickTopToBottom(startMarginRatio = 0.0)
+                condition {
+                    it.screenIs("[Android Settings Top Screen]")
+                }.action {
+                    it.tap("Network & internet")
                 }.expectation {
-                    it.select("@Airplane mode")
-                        .checkIsON()
+                    it.screenIs("[Network & internet Screen]")
                 }
             }
             case(2) {
-                action {
-                    it.macro("[Airplane mode Off]")
-                        .flickTopToBottom(startMarginRatio = 0.0)
+                condition {
+                    it.detect("Airplane mode")
+                        .rightItem()
+                        .checkIsOFF()
+                }.action {
+                    it.tap()
                 }.expectation {
-                    it.select("@Airplane mode")
+                    it.detect("Airplane mode")
+                        .rightItem()
+                        .checkIsON()
+                }
+            }
+            case(3) {
+                action {
+                    it.tap()
+                }.expectation {
+                    it.detect("Airplane mode")
+                        .rightItem()
                         .checkIsOFF()
                 }
             }

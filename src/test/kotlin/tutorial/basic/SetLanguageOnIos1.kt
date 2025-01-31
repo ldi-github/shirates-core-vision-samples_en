@@ -1,28 +1,39 @@
 package tutorial.basic
 
-import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.befavior.LanguageHelperIos
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.driver.befavior.LanguageHelper
+import shirates.core.testcode.ios
+import shirates.core.vision.driver.commandextension.exist
+import shirates.core.vision.driver.commandextension.launchApp
+import shirates.core.vision.driver.commandextension.screenIs
+import shirates.core.vision.driver.wait
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/ios/iOSSettings/testrun.properties")
-class SetLanguageOnIos1 : UITest() {
+@ios
+class SetLanguageOnIos1 : VisionTest() {
 
     @Test
-    @Order(10)
-    fun setLanguage1() {
+    fun setLanguageAndLocale() {
 
         scenario {
             case(1) {
                 action {
-                    LanguageHelperIos.setLanguage(locale = "ja-JP")
+                    LanguageHelper.setLanguageAndLocale(language = "ja", locale = "JP")
+                    it.launchApp("com.apple.Preferences")
+                        .wait()
+                }.expectation {
+                    it.screenIs("[iOS Settings Top Screen]")
+                        .exist("設定")
                 }
             }
             case(2) {
                 action {
-                    LanguageHelperIos.setLanguage(locale = "en-US")
+                    LanguageHelper.setLanguageAndLocale(language = "en", locale = "US")
+                    it.launchApp("com.apple.Preferences")
+                        .wait()
+                }.expectation {
+                    it.screenIs("[iOS Settings Top Screen]")
+                        .exist("Settings")
                 }
             }
         }

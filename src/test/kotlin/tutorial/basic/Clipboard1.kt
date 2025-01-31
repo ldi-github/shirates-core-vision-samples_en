@@ -2,13 +2,12 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.driver.function.readClipboard
-import shirates.core.testcode.UITest
+import shirates.core.driver.commandextension.thisIs
+import shirates.core.driver.commandextension.writeToClipboard
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class Clipboard1 : UITest() {
+class Clipboard1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -19,7 +18,7 @@ class Clipboard1 : UITest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.select("Settings")
+                    it.detect("Settings")
                         .clipboardText()
                 }.expectation {
                     readClipboard()
