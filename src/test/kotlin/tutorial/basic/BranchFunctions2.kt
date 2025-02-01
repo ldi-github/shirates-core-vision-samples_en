@@ -2,14 +2,15 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.branchextension.*
-import shirates.core.driver.commandextension.describe
-import shirates.core.driver.commandextension.screenIs
-import shirates.core.testcode.UITest
+import shirates.core.testcode.ios
+import shirates.core.vision.driver.branchextension.*
+import shirates.core.vision.driver.commandextension.describe
+import shirates.core.vision.driver.commandextension.screenIs
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("unitTestConfig/ios/iOSSettings/testrun.properties")
-class BranchFunctions2 : UITest() {
+
+@ios
+class BranchFunctions2 : VisionTest() {
 
     @Test
     @Order(10)

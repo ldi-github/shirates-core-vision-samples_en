@@ -2,12 +2,13 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.*
-import shirates.core.testcode.UITest
+import shirates.core.driver.commandextension.thisIsFalse
+import shirates.core.testcode.ios
+import shirates.core.vision.driver.commandextension.*
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/ios/iOSSettings/testrun.properties")
-class iOSKeyboard1 : UITest() {
+@ios
+class iOSKeyboard1 : VisionTest() {
 
     @Test
     @Order(10)
@@ -16,7 +17,7 @@ class iOSKeyboard1 : UITest() {
         scenario {
             case(1) {
                 condition {
-                    it.macro("[iOS Home Screen]")
+                    it.pressHome()
                         .isKeyboardShown.thisIsFalse("Keyboard is not shown")
                 }.action {
                     it.swipeCenterToBottom()

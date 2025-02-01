@@ -3,14 +3,12 @@ package tutorial.basic
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtensionContext
-import shirates.core.configuration.Testrun
 import shirates.core.driver.TestDriverEventContext
-import shirates.core.driver.commandextension.exist
 import shirates.core.driver.driver
-import shirates.core.testcode.UITest
+import shirates.core.vision.driver.commandextension.exist
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/android/androidSettings/testrun.properties")
-class TestFixtureEvent1 : UITest() {
+class TestFixtureEvent1 : VisionTest() {
 
     private fun printEvent(eventName: String) {
 

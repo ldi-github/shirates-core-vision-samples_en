@@ -1,14 +1,14 @@
 package tutorial.basic
 
 import org.junit.jupiter.api.Test
-import shirates.core.configuration.Testrun
-import shirates.core.driver.commandextension.appIs
-import shirates.core.driver.commandextension.launchApp
-import shirates.core.driver.commandextension.terminateApp
-import shirates.core.testcode.UITest
+import shirates.core.testcode.ios
+import shirates.core.vision.driver.commandextension.appIs
+import shirates.core.vision.driver.commandextension.launchApp
+import shirates.core.vision.driver.commandextension.terminateApp
+import shirates.core.vision.testcode.VisionTest
 
-@Testrun("testConfig/ios/iOSSettings/testrun.properties")
-class LaunchApp2 : UITest() {
+@ios
+class LaunchApp2 : VisionTest() {
 
     @Test
     fun launchApp() {

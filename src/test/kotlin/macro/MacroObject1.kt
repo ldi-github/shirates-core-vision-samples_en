@@ -1,13 +1,13 @@
 package macro
 
-import shirates.core.driver.TestDrive
-import shirates.core.driver.commandextension.tap
-import shirates.core.driver.commandextension.waitScreen
 import shirates.core.macro.Macro
 import shirates.core.macro.MacroObject
+import shirates.core.vision.driver.commandextension.tap
+import shirates.core.vision.driver.commandextension.waitScreen
+import shirates.core.vision.testcode.VisionTest
 
 @MacroObject
-object MacroObject1 : TestDrive {
+object MacroObject1 : VisionTest() {
 
     @Macro("[Network preferences Screen]")
     fun internetScreen() {
