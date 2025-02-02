@@ -64,7 +64,7 @@ class AssertingOthers1 : VisionTest() {
 
             case(2) {
                 action {
-                    it.tap("[Search settings]")
+                    it.tap("Search settings")
                 }.expectation {
                     it.keyboardIsShown()
                 }

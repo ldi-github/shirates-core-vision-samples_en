@@ -18,7 +18,7 @@ class App1 : VisionTest() {
                     it.launchApp("[Settings]")
                         .tap("Search settings")
                         .screenIs("[Android Settings Search Screen]")
-                        .tap("[Search Box]")
+                        .tap("Search settings")
                 }.action {
                     it.sendKeys(app("[Settings].packageOrBundleId"))
                 }.expectation {

@@ -17,7 +17,7 @@ class iOSPressKey1 : VisionTest() {
             case(1) {
                 condition {
                     it.appIs("[Settings]")
-                        .launchApp("Maps")
+                        .launchApp("[Maps]")
                         .appIs("[Maps]")
                 }.action {
                     it.pressBack()

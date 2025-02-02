@@ -38,7 +38,7 @@ class AssertingText1 : VisionTest() {
                     it.detect("Restaurants")
                 }.expectation {
                     it.textIs("Restaurants")
-                        .rightTextIs("Gas")
+                        .rightTextIs("Hotels")
                         .leftTextIs("Restaurants")
                 }
             }

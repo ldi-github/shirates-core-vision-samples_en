@@ -27,7 +27,7 @@ class Clipboard1 : VisionTest() {
             }
             case(2) {
                 condition {
-                    it.exist("[Network & internet]")
+                    it.exist("Network & internet")
                 }.action {
                     it.clipboardText()
                 }.expectation {
