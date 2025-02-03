@@ -98,7 +98,7 @@ object AndroidSettingsMacro : VisionTest() {
         }
 
         androidSettingsTopScreen()
-        it.tapWithScrollDown("[Wallpaper & style]")
+        it.tapWithScrollDown("Wallpaper & style")
             .screenIs("[Wallpaper & style Screen]")
     }
 
@@ -111,7 +111,7 @@ object AndroidSettingsMacro : VisionTest() {
         }
 
         androidSettingsTopScreen()
-        it.tapWithScrollDown("[Accessibility]")
+        it.tapWithScrollDown("Accessibility")
             .screenIs("[Accessibility Screen]")
     }
 
@@ -124,7 +124,7 @@ object AndroidSettingsMacro : VisionTest() {
 
         androidSettingsTopScreen()
         it.flickAndGoDownTurbo()
-            .tapWithScrollDown("[System]")
+            .tapWithScrollDown("System")
             .screenIs("[System Screen]")
     }
 
