@@ -38,16 +38,16 @@ class FindImage1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    v1 = findImageWithScrollDown("[Location Icon]")
+                    v1 = findImageWithScrollDown("[Location Icon]", threshold = 0.5)
                 }.expectation {
-                    v1.imageLabelIs("[Location Icon]")
+                    v1.imageIs("[Location Icon]")
                 }
             }
             case(2) {
                 action {
                     v1 = findImageWithScrollUp("[Connected devices Icon]")
                 }.expectation {
-                    v1.imageLabelIs("[Connected devices Icon]")
+                    v1.imageIs("[Connected devices Icon]")
                 }
             }
         }
@@ -66,7 +66,7 @@ class FindImage1 : VisionTest() {
                         v1 = findImageWithScrollRight("[This week Button]")
                     }
                 }.expectation {
-                    v1.imageLabelIs("[This week Button]")
+                    v1.imageIs("[This week Button]")
                 }
             }
             case(2) {
@@ -75,7 +75,7 @@ class FindImage1 : VisionTest() {
                         v2 = findImageWithScrollLeft("[Audio Button]")
                     }
                 }.expectation {
-                    v2.imageLabelIs("[Audio Button]")
+                    v2.imageIs("[Audio Button]")
                 }
             }
         }

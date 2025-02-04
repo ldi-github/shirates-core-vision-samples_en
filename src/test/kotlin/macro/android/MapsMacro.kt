@@ -18,15 +18,15 @@ object MapsMacro : VisionTest() {
             return
         }
 
-        it.terminateApp("com.google.android.apps.maps")
-            .launchApp("Maps")
+        it.terminateApp("[Maps]")
+            .launchApp("[Maps]")
             .ifCanDetect("*to send you notifications?") {
                 it.tap("Allow")
             }
             .ifCanSelect("Make it your map") {
                 it.tap("SKIP")
             }
-            .waitForDisplay("#map_frame")
+            .waitForDisplay("Search here")
 
         if (it.isScreen("[Maps Top Screen]")) {
             return

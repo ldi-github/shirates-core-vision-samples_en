@@ -2,18 +2,18 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.vision.driver.branchextension.ifImageLabelIs
-import shirates.core.vision.driver.branchextension.ifImageLabelIsNot
+import shirates.core.vision.driver.branchextension.ifImageIs
+import shirates.core.vision.driver.branchextension.ifImageIsNot
 import shirates.core.vision.driver.commandextension.detect
 import shirates.core.vision.driver.commandextension.leftItem
 import shirates.core.vision.driver.commandextension.macro
 import shirates.core.vision.testcode.VisionTest
 
-class IfImageLabelIs1 : VisionTest() {
+class IfImageIs1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun ifImageLabelIsTest() {
+    fun ifImageIsTest() {
 
         scenario {
             case(1) {
@@ -22,14 +22,14 @@ class IfImageLabelIs1 : VisionTest() {
                 }.expectation {
                     it.detect("Network & internet")
                         .leftItem()
-                        .ifImageLabelIs("[Network & internet Icon]") {
-                            OK("ifImageLabelIs called")
+                        .ifImageIs("[Network & internet Icon]") {
+                            OK("ifImageIs called")
                         }.ifElse {
                             NG()
                         }
                     it.detect("Network & internet")
                         .leftItem()
-                        .ifImageLabelIsNot("[Network & internet Icon]") {
+                        .ifImageIsNot("[Network & internet Icon]") {
                             NG()
                         }.ifElse {
                             OK("ifElse called")
@@ -40,15 +40,15 @@ class IfImageLabelIs1 : VisionTest() {
                 expectation {
                     it.detect("Network & internet")
                         .leftItem()
-                        .ifImageLabelIs("[App Icon]") {
+                        .ifImageIs("[App Icon]") {
                             NG()
                         }.ifElse {
                             OK("ifElse called")
                         }
                     it.detect("Network & internet")
                         .leftItem()
-                        .ifImageLabelIsNot("[App Icon]") {
-                            OK("ifImageLabelIsNot called")
+                        .ifImageIsNot("[App Icon]") {
+                            OK("ifImageIsNot called")
                         }.ifElse {
                             NG()
                         }

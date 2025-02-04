@@ -126,7 +126,7 @@ class CanDetect1 : VisionTest() {
                         .flickBottomToTop()
                 }.expectation {
                     it.canDetectWithScrollUp("Network & internet")
-                        .thisIsTrue("canSelectWithScrollUp(\"Netowork & internet\") is true")
+                        .thisIsTrue("canSelectWithScrollUp(\"Network & internet\") is true")
                 }
             }
         }

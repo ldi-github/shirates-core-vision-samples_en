@@ -20,7 +20,7 @@ class DoUntilTrue1 : VisionTest() {
                     it.screenIs("[Android Settings Top Screen]")
                 }.action {
                     doUntilTrue {
-                        it.swipeCenterToTop()
+                        it.scrollDown()
                         it.canDetect("System")
                     }
                     it.tap()

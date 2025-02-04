@@ -17,17 +17,16 @@ class AssertingOthers1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
-                    it.appIs("Settings")
+                    it.appIs("[Settings]")
                 }
             }
-
             case(2) {
                 condition {
-                    it.launchApp("Chrome")
+                    it.launchApp("[Chrome]")
                 }.expectation {
-                    val isApp = it.isApp("Chrome")
-                    output("isApp(\"Chrome\")=$isApp")
-                    it.appIs("Chrome")
+                    val isApp = it.isApp("[Chrome]")
+                    output("isApp(\"[Chrome]\")=$isApp")
+                    it.appIs("[Chrome]")
                 }
             }
         }
@@ -42,7 +41,7 @@ class AssertingOthers1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
-                    it.appIs("Chrome")
+                    it.appIs("[Chrome]")
                 }
             }
         }
@@ -61,7 +60,6 @@ class AssertingOthers1 : VisionTest() {
                     it.keyboardIsNotShown()
                 }
             }
-
             case(2) {
                 action {
                     it.tap("Search settings")
@@ -100,10 +98,9 @@ class AssertingOthers1 : VisionTest() {
                     it.packageIs("com.android.settings")
                 }
             }
-
             case(2) {
                 action {
-                    it.launchApp("Chrome")
+                    it.launchApp("[Chrome]")
                 }.expectation {
                     it.packageIs("com.android.chrome")
                 }

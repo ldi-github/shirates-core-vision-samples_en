@@ -2,15 +2,12 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
-import shirates.core.testcode.ios
 import shirates.core.vision.driver.branchextension.*
 import shirates.core.vision.driver.commandextension.describe
 import shirates.core.vision.driver.commandextension.screenIs
 import shirates.core.vision.testcode.VisionTest
 
-
-@ios
-class BranchFunctions2 : VisionTest() {
+class BranchFunctionsOnAndroid : VisionTest() {
 
     @Test
     @Order(10)
@@ -18,7 +15,9 @@ class BranchFunctions2 : VisionTest() {
 
         scenario {
             case(1) {
-                action {
+                condition {
+                    it.screenIs("[Android Settings Top Screen]")
+                }.action {
                     android {
                         virtualDevice {
                             describe("This is called on android emulator")
@@ -29,14 +28,14 @@ class BranchFunctions2 : VisionTest() {
                     }
                     ios {
                         virtualDevice {
-                            describe("This is called on iOS Simulator")
+                            describe("This is called on iOS simulator")
                         }
                         realDevice {
                             describe("This is called on iOS real device")
                         }
                     }
                 }.expectation {
-                    it.screenIs("[iOS Settings Top Screen]")
+                    it.screenIs("[Android Settings Top Screen]")
                 }
             }
             case(2) {
@@ -51,10 +50,10 @@ class BranchFunctions2 : VisionTest() {
                         describe("This is called on real device")
                     }
                 }.expectation {
-                    it.screenIs("[iOS Settings Top Screen]")
+                    it.screenIs("[Android Settings Top Screen]")
                 }
             }
         }
-
     }
+
 }
