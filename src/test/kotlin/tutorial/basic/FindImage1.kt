@@ -38,7 +38,7 @@ class FindImage1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    v1 = findImageWithScrollDown("[Location Icon]", threshold = 0.5)
+                    v1 = findImageWithScrollDown("[Location Icon]")
                 }.expectation {
                     v1.imageIs("[Location Icon]")
                 }
