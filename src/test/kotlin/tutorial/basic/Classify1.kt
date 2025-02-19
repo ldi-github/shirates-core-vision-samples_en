@@ -33,7 +33,7 @@ class Classify1 : VisionTest() {
                     s2 = v1.classifyFull()
                 }.expectation {
                     s2.thisIs(
-                        "@a[Android Settings App][Android Settings Top Screen][Network & internet Icon]",
+                        "@a_Android Settings_Android Settings Top Screen_[Network & internet Icon]",
                         message = "fullLabel is $s2"
                     )
                 }
