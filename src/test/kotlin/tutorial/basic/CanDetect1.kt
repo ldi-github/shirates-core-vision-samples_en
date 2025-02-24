@@ -43,7 +43,7 @@ class CanDetect1 : VisionTest() {
             case(5) {
                 expectation {
                     withScrollUp {
-                        it.canDetectAll("Settings", "System")
+                        it.canDetectAll("System", "Settings")
                             .thisIsTrue("<Settings> found with scroll up.")
                     }
                 }

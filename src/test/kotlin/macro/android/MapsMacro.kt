@@ -2,7 +2,6 @@ package macro.android
 
 import ifCanDetect
 import shirates.core.driver.branchextension.ifCanSelect
-import shirates.core.driver.waitForDisplay
 import shirates.core.macro.Macro
 import shirates.core.macro.MacroObject
 import shirates.core.vision.driver.commandextension.*
@@ -26,7 +25,6 @@ object MapsMacro : VisionTest() {
             .ifCanSelect("Make it your map") {
                 it.tap("SKIP")
             }
-            .waitForDisplay("Search here")
 
         if (it.isScreen("[Maps Top Screen]")) {
             return

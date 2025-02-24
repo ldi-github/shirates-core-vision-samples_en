@@ -2,6 +2,7 @@ package tutorial.basic
 
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import shirates.core.driver.testContext
 import shirates.core.vision.driver.commandextension.*
 import shirates.core.vision.testcode.VisionTest
 
@@ -30,6 +31,8 @@ class RelativeItem1 : VisionTest() {
     @Order(20)
     fun rightItem_leftItem() {
 
+        testContext.segmentMarginHorizontal = 5
+        
         scenario {
             case(1) {
                 condition {
