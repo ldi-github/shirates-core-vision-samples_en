@@ -14,14 +14,14 @@ class TempSelector1 : VisionTest() {
     @Order(10)
     fun tempSelector1() {
 
-        tempSelector("[First Item]", "Network & internet")
+        tempSelector("{First Item}", "Network & internet")
 
         scenario {
             case(1) {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.tap("[First Item]")
+                    it.tap("{First Item}")
                 }.expectation {
                     it.screenIs("[Network & internet Screen]")
                 }
