@@ -45,12 +45,12 @@ class Tap1 : VisionTest() {
     }
 
     @Test
-    fun tapBelowOf() {
+    fun tapItemUnder() {
 
         scenario {
             case(1) {
                 action {
-                    it.tapBelowOf("Mobile, Wi-Fi, hotspot")
+                    it.tapItemUnder("Mobile, Wi-Fi, hotspot")
                 }.expectation {
                     it.screenIs("[Connected devices Screen]")
                 }
@@ -60,7 +60,7 @@ class Tap1 : VisionTest() {
                     it.pressBack()
                 }.action {
                     withScrollDown {
-                        it.tapBelowOf("Services & preferences")
+                        it.tapItemUnder("Services & preferences")
                     }
                 }.expectation {
                     it.screenIs("[System Screen]")
