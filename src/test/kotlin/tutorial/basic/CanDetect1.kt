@@ -61,7 +61,7 @@ class CanDetect1 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.canDetect("Network & internet")
-                        .thisIsTrue(message = "canSelect(\"Network & internet\") is true")
+                        .thisIsTrue(message = "canDetect(\"Network & internet\") is true")
                 }
             }
         }
@@ -77,7 +77,7 @@ class CanDetect1 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.canDetect("Network business")
-                        .thisIsFalse("canSelect(\"Network business\") is false")
+                        .thisIsFalse("canDetect(\"Network business\") is false")
                 }
             }
         }
@@ -93,7 +93,7 @@ class CanDetect1 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.canDetectWithScrollDown("System")
-                        .thisIsTrue("canSelectWithScrollDown(\"System\") is true")
+                        .thisIsTrue("canDetectWithScrollDown(\"System\") is true")
                 }
             }
         }
@@ -109,7 +109,7 @@ class CanDetect1 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.canDetectWithScrollDown("Network business")
-                        .thisIsFalse("canSelectWithScrollDown(\"Network business\") is false")
+                        .thisIsFalse("canDetectWithScrollDown(\"Network business\") is false")
                 }
             }
         }
@@ -126,7 +126,7 @@ class CanDetect1 : VisionTest() {
                         .flickBottomToTop()
                 }.expectation {
                     it.canDetectWithScrollUp("Network & internet")
-                        .thisIsTrue("canSelectWithScrollUp(\"Network & internet\") is true")
+                        .thisIsTrue("canDetectWithScrollUp(\"Network & internet\") is true")
                 }
             }
         }
@@ -143,7 +143,7 @@ class CanDetect1 : VisionTest() {
                         .flickBottomToTop()
                 }.expectation {
                     it.canDetectWithScrollUp("Network business")
-                        .thisIsFalse("canSelectWithScrollUp(\"Network business\") is false")
+                        .thisIsFalse("canDetectWithScrollUp(\"Network business\") is false")
                 }
             }
         }
