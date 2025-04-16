@@ -12,7 +12,7 @@ class IfCanDetect1 : VisionTest() {
 
     @Test
     @Order(10)
-    fun ifCanSelectTest() {
+    fun ifCanDetectTest() {
 
         scenario {
             case(1) {
@@ -20,13 +20,13 @@ class IfCanDetect1 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     ifCanDetect("Network & internet") {
-                        OK("ifCanSelect called")
+                        OK("ifCanDetect called")
                     }.ifElse {
                         NG()
                     }
 
                     ifCanDetectNot("System") {
-                        OK("ifCanSelectNot called")
+                        OK("ifCanDetectNot called")
                     }.ifElse {
                         NG()
                     }

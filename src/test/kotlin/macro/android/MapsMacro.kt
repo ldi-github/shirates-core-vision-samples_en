@@ -1,7 +1,6 @@
 package macro.android
 
 import ifCanDetect
-import shirates.core.driver.branchextension.ifCanSelect
 import shirates.core.macro.Macro
 import shirates.core.macro.MacroObject
 import shirates.core.vision.driver.commandextension.*
@@ -22,7 +21,7 @@ object MapsMacro : VisionTest() {
             .ifCanDetect("*to send you notifications?") {
                 it.tap("Allow")
             }
-            .ifCanSelect("Make it your map") {
+            .ifCanDetect("Make it your map") {
                 it.tap("SKIP")
             }
 
