@@ -1,4 +1,4 @@
-# shirates-core-vision-samples_en [Beta]
+# shirates-core-vision-samples_en
 
 Shirates/Vision samples in English
 
