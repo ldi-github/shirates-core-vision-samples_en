@@ -3,9 +3,9 @@ package tutorial.basic
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import shirates.core.driver.platformMajorVersion
+import shirates.core.vision.driver.commandextension.exist
 import shirates.core.vision.driver.commandextension.output
 import shirates.core.vision.driver.commandextension.tap
-import shirates.core.vision.driver.commandextension.textIs
 import shirates.core.vision.testcode.VisionTest
 
 class SkipAndNotImpl1 : VisionTest() {
@@ -22,17 +22,16 @@ class SkipAndNotImpl1 : VisionTest() {
                         SKIP_CASE("case(1) skipped.")   // Skip execution of commands (log only)
                     }
                 }.action {
-                    it.tap("Settings")  // Skipped
+                    it.tap("Network & internet")  // Skipped
                 }.expectation {
-                    it.textIs("Settings")    // Skipped
+                    it.exist("Airplane mode")   // Skipped
                 }
             }
-
             case(2) {
                 action {
-                    it.tap("Settings")  // Executed
+                    it.tap("Network & internet")  // Executed
                 }.expectation {
-                    it.textIs("Settings")    // Executed
+                    it.exist("Airplane mode")   // Executed
                 }
             }
         }
@@ -50,17 +49,16 @@ class SkipAndNotImpl1 : VisionTest() {
                         SKIP_SCENARIO()     // Skip execution of commands (log only)
                     }
                 }.action {
-                    it.tap("Settings")  // Skipped
+                    it.tap("Network & internet")  // Skipped
                 }.expectation {
-                    it.textIs("Settings")    // Skipped
+                    it.exist("Airplane mode")   // Skipped
                 }
             }
-
             case(2) {
                 action {
-                    it.tap("Settings")  // Skipped
+                    it.tap("Internet")  // Skipped
                 }.expectation {
-                    it.textIs("Settings")    // Skipped
+                    it.exist("AndroidWifi")   // Skipped
                 }
             }
         }
@@ -73,27 +71,25 @@ class SkipAndNotImpl1 : VisionTest() {
         scenario {
             case(1) {
                 action {
-                    it.tap("Settings")  // Executed
+                    it.tap("Network & internet")  // Executed
                 }.expectation {
-                    it.textIs("Settings")    // Executed
+                    it.exist("Airplane mode")   // Executed
                 }
             }
-
             case(2) {
                 condition {
                     NOTIMPL()   // Abort this test
                 }.action {
-                    it.tap("Settings")  // Not reached
+                    it.tap("Internet")  // Not reached
                 }.expectation {
-                    it.textIs("Settings")   // Not reached
+                    it.exist("AndroidWifi")   // Not reached
                 }
             }
-
             case(3) {
                 action {
-                    it.tap("Settings")  // Not reached
+                    it.tap("AndroidWifi")  // Not reached
                 }.expectation {
-                    it.textIs("Settings")    // Not reached
+                    it.exist("Network details")    // Not reached
                     NOTIMPL("To be implement.")     // Not reached
                 }
             }
@@ -107,19 +103,11 @@ class SkipAndNotImpl1 : VisionTest() {
         scenario {
             NOTIMPL()   // Abort this scenario
 
-            case(1) {   // Not reached
+            case(1) {
                 action {
-                    it.tap("Settings")
+                    it.tap("Network & internet")    // Not reached
                 }.expectation {
-                    it.textIs("Settings")
-                }
-            }
-
-            case(2) {   // Not reached
-                action {
-                    it.tap("Settings")
-                }.expectation {
-                    it.textIs("Settings")
+                    it.exist("Airplane mode")   // Not reached
                 }
             }
         }
