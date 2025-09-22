@@ -18,11 +18,11 @@ class Clipboard1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.detect("Settings")
+                    it.detect("Apps")
                         .clipboardText()
                 }.expectation {
                     readClipboard()
-                        .thisIs("Settings")
+                        .thisIs("Apps")
                 }
             }
             case(2) {

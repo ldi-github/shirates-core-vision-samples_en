@@ -20,11 +20,11 @@ class FindImage1 : VisionTest() {
                 }.action {
                     withScrollDown {
                         v1 = it.findImage("[Network & internet Icon]")
-                        v2 = it.findImage("[Display Icon]")
+                        v2 = it.findImage("[Display & touch Icon]")
                     }
                 }.expectation {
                     v1.isFound.thisIsTrue("[Network & internet Icon] is found.")
-                    v2.isFound.thisIsTrue("[Display Icon] is found.")
+                    v2.isFound.thisIsTrue("[Display & touch Icon] is found.")
                 }
             }
         }

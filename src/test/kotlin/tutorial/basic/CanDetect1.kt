@@ -16,8 +16,8 @@ class CanDetect1 : VisionTest() {
         scenario {
             case(1) {
                 expectation {
-                    it.canDetect("Settings")
-                        .thisIsTrue("<Settings> found.")
+                    it.canDetect("Google")
+                        .thisIsTrue("<Google> found.")
                 }
             }
             case(2) {
@@ -28,23 +28,23 @@ class CanDetect1 : VisionTest() {
             }
             case(3) {
                 expectation {
-                    it.canDetectWithScrollUp("Settings")
-                        .thisIsTrue("<Settings> found with scroll up.")
+                    it.canDetectWithScrollUp("Google")
+                        .thisIsTrue("<Google> found with scroll up.")
                 }
             }
             case(4) {
                 expectation {
                     withScrollDown {
-                        it.canDetectAll("Settings", "System")
-                            .thisIsTrue("<Settings> found with scroll down.")
+                        it.canDetectAll("Google", "System")
+                            .thisIsTrue("<Google> and <System> found with scroll down.")
                     }
                 }
             }
             case(5) {
                 expectation {
                     withScrollUp {
-                        it.canDetectAll("System", "Settings")
-                            .thisIsTrue("<Settings> found with scroll up.")
+                        it.canDetectAll("System", "Google")
+                            .thisIsTrue("<System> and <Settings> found with scroll up.")
                     }
                 }
             }

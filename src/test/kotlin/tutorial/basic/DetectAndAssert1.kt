@@ -15,8 +15,8 @@ class DetectAndAssert1 : VisionTest() {
         scenario {
             case(1) {
                 expectation {
-                    it.detect("Settings")
-                        .textIs("Settings")   // OK
+                    it.detect("Search Settings")
+                        .textIs("Search Settings")   // OK
                 }
             }
         }
@@ -29,7 +29,7 @@ class DetectAndAssert1 : VisionTest() {
         scenario {
             case(1) {
                 expectation {
-                    it.detect("Settings")
+                    it.detect("Search Settings")
                         .textIs("Network & internet")   // NG
                 }
             }

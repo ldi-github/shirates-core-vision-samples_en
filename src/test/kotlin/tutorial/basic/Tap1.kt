@@ -20,8 +20,8 @@ class Tap1 : VisionTest() {
             }
             case(2) {
                 action {
-                    it.tapWithScrollDown("Display")
-                        .tapWithScrollDown("Colors")
+                    it.tapWithScrollDown("Accessibility")
+                        .tapWithScrollDown("Timing controls")
                     it.pressBack()
                         .pressBack()
                 }
@@ -60,7 +60,7 @@ class Tap1 : VisionTest() {
                     it.pressBack()
                 }.action {
                     withScrollDown {
-                        it.tapItemUnder("Services & preferences")
+                        it.tapItemUnder("Charged")
                     }
                 }.expectation {
                     it.screenIs("[System Screen]")

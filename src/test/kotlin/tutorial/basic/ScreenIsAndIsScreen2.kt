@@ -19,7 +19,6 @@ class ScreenIsAndIsScreen2 : VisionTest() {
                     it.macro("[Android Settings Top Screen]")
                 }.expectation {
                     it.screenIs("[Android Settings Top Screen]") {  // OK
-                        exist("Settings")           // OK (log is suppressed)
                         exist("Search settings")    // OK (log is suppressed)
                     }
                 }

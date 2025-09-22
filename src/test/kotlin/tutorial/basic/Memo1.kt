@@ -21,10 +21,8 @@ class Memo1 : VisionTest() {
                         .tap("Storage")
                         .waitForDisplay("GB")
                 }.action {
-                    writeMemo("System", it.detect("System").rightText().text)
                     writeMemo("Apps", it.detect("Apps").rightText().text)
                 }.expectation {
-                    readMemo("System").printInfo()
                     readMemo("Apps").printInfo()
                 }
             }

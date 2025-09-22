@@ -17,10 +17,10 @@ class RelativeItem1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    v1 = findImage("[Connected devices Icon]")
+                    v1 = findImage("[Notifications Icon]")
                 }.expectation {
-                    v1.belowItem().imageIs("[Apps Icon]")
-                    v1.aboveItem().imageIs("[Network & internet Icon]")
+                    v1.belowItem().imageIs("[Sound & vibration Icon]")
+                    v1.aboveItem().imageIs("[Apps Icon]")
                 }
             }
         }
@@ -32,7 +32,7 @@ class RelativeItem1 : VisionTest() {
     fun rightItem_leftItem() {
 
         testContext.segmentMarginHorizontal = 5
-        
+
         scenario {
             case(1) {
                 condition {

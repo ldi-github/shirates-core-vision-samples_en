@@ -53,7 +53,7 @@ class Scroll1 : VisionTest() {
                 action {
                     it.scrollToTop(repeat = 2)
                 }.expectation {
-                    it.exist("Settings")
+                    it.exist("Google")
                 }
             }
         }

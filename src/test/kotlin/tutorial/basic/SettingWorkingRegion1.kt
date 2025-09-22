@@ -110,7 +110,7 @@ class SettingWorkingRegion1 : VisionTest() {
                 action {
                     val sw = StopWatch("onBottomRegion")
                     onBottomRegion {
-                        it.findImage("[Sound & vibration Icon]")
+                        it.findImage("[Storage Icon]")
                     }
                     s3 = "onBottomRegion:    ${sw.elapsedSeconds} sec"
                 }

@@ -17,7 +17,7 @@ class Swipe1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.detect("Battery")
+                    it.detect("Modes")
                         .swipeTo("Network & internet")
                 }.expectation {
                 }
@@ -26,7 +26,7 @@ class Swipe1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                 }.action {
-                    it.detect("Battery")
+                    it.detect("Modes")
                         .swipeToAdjust("Network & internet")
                 }.expectation {
                 }
@@ -43,14 +43,14 @@ class Swipe1 : VisionTest() {
                 condition {
                     it.macro("[Android Settings Top Screen]")
                         .exist("Notifications")
-                        .exist("Battery")
+                        .exist("Display & touch")
                 }.action {
-                    it.detect("Battery")
+                    it.detect("Display & touch")
                         .swipeToCenterOfScreen()
                         .swipeToTopOfScreen(durationSeconds = 5.0)
                 }.expectation {
                     it.dontExist("Notifications")
-                        .exist("Sound & vibration")
+                        .exist("Storage")
                 }
             }
             case(2) {
