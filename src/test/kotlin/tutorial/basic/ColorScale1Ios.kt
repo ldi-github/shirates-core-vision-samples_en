@@ -23,9 +23,9 @@ class ColorScale1Ios : VisionTest() {
                 condition {
                     it.screenIs("[iOS Settings Top Screen]")
                 }.action {
-                    v1 = detect("StandBy").leftItem()
+                    v1 = detect("General").leftItem()
                 }.expectation {
-                    v1.imageIs("[StandBy Icon]")    // NG (on iOS 26 Liquid Glass), OK (on iOS 18 or older)
+                    v1.imageIs("[General Icon]")
                 }
             }
         }
@@ -44,9 +44,9 @@ class ColorScale1Ios : VisionTest() {
                 condition {
                     it.screenIs("[iOS Settings Top Screen]")
                 }.action {
-                    v1 = detect("StandBy").leftItem()
+                    v1 = detect("General").leftItem()
                 }.expectation {
-                    v1.imageIs("[StandBy Icon]")    // OK
+                    v1.imageIs("[General Icon]")
                 }
             }
         }
